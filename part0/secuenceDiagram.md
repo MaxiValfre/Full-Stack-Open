@@ -1,6 +1,4 @@
-```mermaid
-graph TD;
-    sequenceDiagram
+sequenceDiagram
     participant browser
     participant server
 
@@ -27,6 +25,10 @@ graph TD;
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
-```
-
     
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: 201 Created
+    deactivate server
+
+    Note right of browser: The browser sends a new note to the server and receives confirmation
