@@ -1,5 +1,6 @@
 ```mermaid
 sequenceDiagram
+    
     participant browser
     participant server
 
@@ -20,16 +21,15 @@ sequenceDiagram
 
     Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    activate server
-    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
-    deactivate server
+     browser->>browser: User enters text in the input field
+    Note right of browser: The user types something in the text field
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    browser->>browser: User clicks the "Save" button
+    Note right of browser: The browser captures the click event
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
     server-->>browser: 201 Created
     deactivate server
 
-    Note right of browser: The browser sends a new note to the server and receives confirmation
+    Note right of browser: The browser sends the new note to the server and receives confirmation
